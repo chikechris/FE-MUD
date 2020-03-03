@@ -1,23 +1,37 @@
 import {
+    REGISTER_START,
     REGISTER_SUCCESS,
-    REGISTER_FAIL,
-    LOGIN_FAIL,
+    LOGIN_START,
     LOGIN_SUCCESS,
-    AUTH_ERROR,
-    LOGOUT
+    AUTH_ERROR
+    // LOGOUT
 } from '../actions/types';
 
 const initialState = {
-    user: '',
-    loggingIn: false
+    userName: '',
+    loggingIn: false,
+    error: null
 };
 
 export default (state = initialState, action) => {
     switch (action.type) {
+        case LOGIN_START:
+        case REGISTER_START:
+            return {
+                ...state,
+                loggingIn: true
+            };
+        case LOGIN_SUCCESS:
         case REGISTER_SUCCESS:
             return {
                 ...state,
-                loggingIn: false
+                loggingIn: false,
+                userName: action.payload
+            };
+        case AUTH_ERROR:
+            return {
+                ...state,
+                error: action.payload
             };
         default:
             return state;

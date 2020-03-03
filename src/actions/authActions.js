@@ -1,11 +1,11 @@
 import axios from 'axios';
 import {
+    REGISTER_START,
     REGISTER_SUCCESS,
-    REGISTER_FAIL,
-    LOGIN_FAIL,
+    LOGIN_START,
     LOGIN_SUCCESS,
-    AUTH_ERROR,
-    LOGOUT
+    AUTH_ERROR
+    // LOGOUT
 } from './types';
 
 // registration user
