@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 
 const FormInput = props => {
   const {
@@ -31,4 +32,17 @@ const FormInput = props => {
   );
 };
 
-export default FormInput;
+FormInput.defaultProps = {
+  type: 'text',
+  className: ''
+}
+FormInput.propTypes = {
+  id: PropTypes.string, 
+  name: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired, 
+  type: PropTypes.oneOf(['text', 'number', 'password']), 
+  className: PropTypes.string,
+  onChange: PropTypes.func.isRequired
+}
+
+export  {FormInput};
